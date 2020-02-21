@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Random request </title>
+    <link rel="stylesheet" type="text/css" href="card-random-request.css">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="container-left">
+           <form NAME="myform" ACTION="" METHOD="GET">
+                           <div class="row">
+                    <div class="text-column">
+                        <label for="Name" class="input-label" >Name:</label>
+                    </div>
+                    <div class="input-column">
+                        <input type="text" value=""  name="Name" placeholder="e.g : first" class="input-text" id="name"/>
+                    </div>
+                </div>
+                   <div class="row">
+                        <div class="text-column">
+                            <label for="Images" class="input-label">Image:</label>
+                        </div>
+                        <div class="input-column">
+                            <select id="Image" class="input-text">
+                                <option value="large" >Large</option>
+                                <option value="medium">Medium </option>
+                                <option value="thumbnail">Thumbnail</option>
+                            </select>
+                        </div>
+                    </div>
+                   
+ <div class="row">
+                        <div class="text-column">
+                            <label for="Location" class="input-label" value="Location">Location:</label>
+                        </div>
+                        <div class="input-column">
+                            <input type="radio" name="Location-radio" value="street" checked/>street
+                            <input type="radio" name="Location-radio" value="city"/>city
+                            <input type="radio" name="Location-radio" value="state"/>state
+                        </div>
+                    </div>
+                <div class="row">
+                        <div class="button">
+                            <div class="input-button" onClick="requestCheck()">
+                                           <div id="loader"></div>
+                    <p id="buttonText" style="margin:auto;">Request</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+            </form>
+            </div>
+        <div class="container-right">
+        	<div class="card" style="display: flex;justify-content: center;align-items: center;" >
+                <div style="height: 100%;" >
+                    <!-- <p id="buttonText" style="margin:auto;"></p>
+                            </div> -->
+        		<div id="demo1" style="height:50%;"></div>
+                       <div id="loader1"></div>
+
+                <div id="demo2" style="text-align: center;height:25%;"></div>
+                <div id="demo3" style="text-align: center;height:25%;"></div>
+
+        	</div>
+
+            <div class="image"></div>
+
+            <div class="name"></div>
+            <div class="location"></div>
+        </div>
+    </div>
+
+<script src="card-random-request.js">
+</script>
+        
+</body>
+
+
+</html>

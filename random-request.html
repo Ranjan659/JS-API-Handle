@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    
+    <style type="text/css">
+    .loader {
+        border: 6px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 6px solid #3498db;
+        width: 10px;
+        height: 10px;
+        -webkit-animation: spin 2s linear infinite;
+        animation: spin 2s linear infinite;
+        margin-left: 40%;
+
+    }
+
+    @-webkit-keyframes spin {
+        0% {
+            -webkit-transform: rotate(0deg);
+        }
+
+        100% {
+            -webkit-transform: rotate(360deg);
+        }
+    }
+
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    button {
+        width: 100px;
+        height: 50px;
+        float: left;
+        display: inline-block;
+        align-content: center;
+    }
+
+    .hi {
+        display: none;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="demo"></div>
+    <br />
+    <button onClick="requestCheck()">
+        <div id="loader"></div>
+        <p id="demo2">Request</p>
+    </button>
+    <script type="text/javascript">
+    
+        var element = document.getElementById("loader");
+        element.classList.add("loader");
+        var el2 = document.getElementById("demo2");
+        el2.classList.add("hi");
+
+        const Http = new XMLHttpRequest();
+        const url = 'https://randomuser.me/api/?inc=name&noinfo';
+        Http.open("GET", url);
+        Http.send();
+        
+        const secondHttp = new XMLHttpRequest();
+        const secondUrl = 'https://randomuser.me/api/?inc=location&noinfo';
+        secondHttp.open("GET", secondUrl);
+        secondHttp.send();
+        Http.onreadystatechange = (e) => {
+                let i= JSON.parse(Http.responseText);
+
+            secondHttp.onreadystatechange = (e) => {
+                    let j = JSON.parse(secondHttp.responseText); 
+                document.getElementById("demo").innerHTML = i.results[0].name.first + "<br/>" + j.results[0].location.city;
+
+                var element2 = document.getElementById("demo2").innerHTML = "Request Again";
+                element.classList.remove("loader");
+                el2.classList.remove("hi");
+
+            }
+
+
+        }
+    }
+    </script>
+</body>
+
+</html>
